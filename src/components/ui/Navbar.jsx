@@ -10,6 +10,7 @@ export default function Navbar() {
             <a className="nav-link active" aria-current="page" href="/">Home</a>
             <a className="nav-link" href="/about">About</a>
             <a className="nav-link" href="/students">Students</a>
+            <a className="nav-link" href="/students/add">Add</a>
           </div>
         </div>
       </div>

@@ -3,9 +3,19 @@ import { Student } from '../db/models';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-  const allStudents = await Student.findAll();
-  const initState = { path: req.originalUrl, allStudents };
+router.route('/')
+  .get(async (req, res) => {
+    const allStudents = await Student.findAll();
+    const initState = { path: req.originalUrl, allStudents };
+    res.layout(initState);
+  })
+  .post((req, res) => {
+    console.log('NEW STUDENT', req.body);
+    res.sendStatus(200);
+  });
+
+router.get('/add', async (req, res) => {
+  const initState = { path: req.originalUrl };
   res.layout(initState);
 });
 
