@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function About() {
   const [counter, setCounter] = useState(0);
   const [joke, setJoke] = useState(null);
   const increment = () => {
     setCounter((prev) => prev + 1);
-    setCounter((prev) => prev + 1);
-    setCounter((prev) => prev + 1);
   };
   const clickHandler = () => {
     fetch('https://api.chucknorris.io/jokes/random')
       .then((res) => res.json())
       .then((data) => {
-        setCounter(counter + 1);
+        // setCounter(counter + 1);
         setJoke(data);
       })
       .catch(console.log);
   };
+  useEffect(() => {
+    setCounter(counter + 1);
+    console.log(counter);
+  }, []);
+
   return (
     <div className="row">
       <div className="col-4">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function StudentCard({ student }) {
   return (
@@ -9,7 +10,7 @@ export default function StudentCard({ student }) {
           <h5 className="card-title">{student.name}</h5>
           <p className="card-text">{student.email}</p>
           <p className="card-text">{`Cups: ${student.cups}`}</p>
-          <a href={`/students/${student.id}`} className="btn btn-primary">Go somewhere</a>
+          <Link to={`/students/${student.id}`} className="btn btn-primary">Show student</Link>
         </div>
       </div>
     </div>
